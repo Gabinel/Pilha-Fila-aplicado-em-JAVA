@@ -11,7 +11,7 @@ public class Fila {
         this.elements = new Object[capacity];
         this.size = 0;
         this.start = 0;
-        this.end = 1;
+        this.end = -1;
     }
 
     public Object add(Object element) {
@@ -26,13 +26,15 @@ public class Fila {
         return element;
     }
 
-    public Object remove(Object element){
+    public Object remove(){
         if(size == 0) {
             throw new IllegalStateException("A fila está vazia!");
         }
 
         Object removed = elements[start];
         start += 1;
+        size--;
+
         return removed;
     }
 
